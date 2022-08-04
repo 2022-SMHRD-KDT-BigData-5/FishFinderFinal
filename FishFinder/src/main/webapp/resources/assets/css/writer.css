@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.content{
+	width: 736px;
+    margin: auto;
+    height: 640px;
+}
+.writer_flex{
+	display: flex;
+}
+.img_cont{
+	width: 200px;
+	height: 100px;
+}
+.preview_img{
+	width: 200px;
+	height: 100px;
+	object-fit: fill;
+}
+.write_box{
+	width: 100%;
+	height: 100%;
+}
+.container{
+	height: 400px;
+	padding: 2%;
+	border: 1px dotted #fff;
+	text-align: left;
+	overflow: scroll;
+	/* white-space: pre-wrap; */
+	font-family: 'twayair';
+}
+.write_content{
+	background-color: transparent;
+	width: 100%;
+	height: 300px;
+	resize: none;
+	border: none;
+	padding: 2%;
+}
+.board_write nav{
+	margin-top: 0;
+}
+.container::-webkit-scrollbar {
+    display: none;
+}
+.qna_content{
+	border: none;
+	background-color: transparent;
+	resize: none;
+}
+.upload_image{
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	text-align: right;
+}
+.write_content::-webkit-scrollbar{
+	display: none;
+}
+.title_type{
+	width: 500px;
+}
+@media screen and (max-width: 736px){
+    .content{
+        width: 320px;
+        height: 500px;
+    }
+	.qna_content{
+		width: 100%;
+		height: 300px;
+	}
+	.container{
+		height: 300px;
+	}
+	.write_content{
+		height: 270px;
+	}
+	.title_type{
+		width: 240px;
+	}
+}
+.board_write {
+	border-top: 2px solid #fff;
+}
+.board_write .title {
+	padding: 1%;
+}
+.title{
+	border-bottom: 1px dotted #fff;
+}
+.board_write .title dt,
+.board_write .info dt {
+	width: 100px;
+}
+.board_write .title dd{
+	width: calc(100%-100px);
+}
+
+.board_write .title dt,
+.board_write .title dd {
+	display: inline-block;
+	vertical-align: middle;
+}
+input::placeholder{
+	color: #fff;
+	width: 100%;
+}
+textarea::placeholder{
+	color: #fff;
+}
+dt{
+	font-size: large;
+}
+.fullscreen-vid-wrap{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	overflow: hidden;
+}
+.fullscreen-vid-wrap video{
+	min-width: 100%;
+	min-height:100%;
+} 
+.vid-head container::content{
+	z-index: 2;
+}
+.upload-file-button{
+	color: white;
+	cursor: pointer;
+	-moz-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	border-radius: 100%;
+	border: solid 1px #fff;
+	display: block;
+	font-size: 1.75em;
+	height: 2.5em;
+	line-height: 2.5em;
+	position: relative;
+	text-align: center;
+	top: 0;
+	width: 2.5em;
+	margin-left: 15px;
+  }
+
+.input-file-button2:hover{
+border-color: transparent;
+}
+.write_nav1{
+	margin-top: 10%;
+	margin-bottom: 10%;
+}

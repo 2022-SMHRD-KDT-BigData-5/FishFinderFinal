@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smhrd.mapper.userhistoryMapper">
+
+
+	<!-- 회원별 히스토리 가져오기 -->
+	<select id="userhistory"
+		resultType="com.smhrd.domain.userhistory">
+		select * from user_history where user_num=#{user_num} order by search_date
+		DESC
+	</select>
+
+	<!-- 이미지 첨부 -->
+	<insert id="historyInsert"
+		parameterType="com.smhrd.domain.userhistory">
+		insert into user_history(user_num,fish_img,search_date)
+		values(#{user_num},#{fish_img},now())
+	</insert>
+
+	<!-- 마지막으로 성공한 insert의 auto cream~~값을 불러옴 -->
+	<select id="last_insert_id" resultType="Integer">
+		select last_insert_id()
+	</select>
+
+	<!-- pk로 이미지 가져오기 -->
+	<select id="historyPk" resultType="com.smhrd.domain.userhistory">
+		select * from user_history where his_seq=#{his_seq}
+	</select>
+
+	<!-- 기록 삭제 -->
+	<delete id="historyDel">
+		delete from user_history where his_seq=#{his_seq}
+	</delete>
+
+	<!-- 모든 기록 수 -->
+	<select id="userhistorycount"
+		resultType="integer">
+		select COUNT(*) from user_history 
+	</select>
+	
+		<!-- 파일명으로 찾기 -->
+	<select id="userhistoryname"
+		resultType="com.smhrd.domain.userhistory" parameterType="String">
+		select * from user_history where fish_img = #{fish_img}
+	</select>
+
+</mapper>

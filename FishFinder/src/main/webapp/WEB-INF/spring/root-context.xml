@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+    xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+    
+    <!-- Root Context: defines shared resources visible to all other web components -->
+        
+        <!-- db정보 저장 객체 -->
+        <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://project-db-stu.ddns.net:3307/fish"></property>
+        <property name="username" value="fish"></property>
+        <property name="password" value="12345"></property>
+        </bean>
+        
+        <!--HikariCP Configration-->
+        <!--  커넥션, 매퍼 관리할 sql팩토리객체 생성 -->
+        <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="hikariConfig"/>
+        </bean>
+        
+        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        </bean>
+        
+        <!-- 중요함. -->
+        <!-- mapper 스캔해서  interface를 완전한 객체로 만듦 -->
+        <mybatis-spring:scan base-package="com.smhrd.mapper"/>
+        
+</beans>
+
+<!--
+beans : 자바 객체(object)
+ ==> spring 에서의 bean : 스프링이 생성, 삭제를 관리하는 객체
+ -->

@@ -1,0 +1,27 @@
+.question_box{
+    border: 1px solid #fff;
+    padding: 2%;
+    width: 736px;
+    margin: auto;
+    height: 640px;
+    border-radius: 5px;
+    font-family: 'Cafe24Ssurround';
+    margin-top: 1%;
+}
+.title_flex{
+    display: flex;
+}
+.qna_content{
+	background-color: transparent;
+	width: 100%;
+	height: 400px;
+	resize: none;
+	border: none;
+	padding: 2%;
+}
+@media screen and (max-width: 736px){
+    .question_box{
+        width: 320px;
+        height: 500px;
+    }
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.smhrd.mapper.answerMapper">
+
+    
+	<!-- 모든 답변 글 가져오기 -->
+    <select id="answerList" resultType="com.smhrd.domain.answerInfo">
+			SELECT * FROM answer_info where q_seq=#{q_seq}
+    </select>
+ 	
+    <!-- 답 글 작성 -->
+    <insert id="answerInsert" parameterType="com.smhrd.domain.answerInfo">
+        insert into answer_info(a_content,a_date,answer_num,q_seq) 
+        values(#{a_content},now(),#{answer_num},#{q_seq})
+    </insert>
+    
+    <!-- 특정 답 글 가져오기 -->
+    <select id="answerView" resultType="com.smhrd.domain.answerInfo">
+        select * from  answer_info where a_seq = #{a_seq}
+    </select>
+    
+    <!-- 답 글 수정하기 -->
+    <update id="answerUpdate" parameterType="com.smhrd.domain.answerInfo">
+        update  answer_info set a_content=#{a_content}, a_date=now() where q_seq=#{q_seq}
+    </update> 
+       
+    <!-- 답글 삭제 -->
+    <delete id="answerDelete">
+        delete from answer_info where a_seq=#{a_seq}
+    </delete>
+    
+  
+</mapper>

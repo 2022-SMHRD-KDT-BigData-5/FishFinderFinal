@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.smhrd.mapper.userinfoMapper">
+    
+    <!-- 모든 회원정보 가져오기 -->
+    <select id="userList" resultType="com.smhrd.domain.userinfo">
+        select * from user_info 
+    </select>
+    
+    <!-- 카카오 회원정보 가져오기 -->
+    <select id="KakaoUser" resultType="com.smhrd.domain.userinfo"
+        parameterType="com.smhrd.domain.userinfo">
+        select * from user_info where openID=#{openID}
+    </select>
+    
+       <!-- 카카오 회원정보 가져오기 -->
+    <select id="KakaoLogin" resultType="com.smhrd.domain.userinfo" parameterType="String">
+        select * from user_info where openID=#{openID}
+    </select>
+    
+    <!-- 카카오 회원가입 -->
+    <insert id="KakaoJoin" parameterType="com.smhrd.domain.userinfo">
+        insert into user_info(kakao_name,user_joindate,openID) values(#{kakao_name},now(),#{openID})
+    </insert>
+    
+    <!-- 유저 넘버에서 유저 이름 가져오기 -->
+    <select id="usernameGet" resultType="com.smhrd.domain.userinfo" parameterType="String">
+		select kakao_name from user_info where user_num=#{user_num}    
+    </select>
+<!-- 모든 회원정보 가져오기 -->
+    <select id="usercount" resultType="integer">
+        select COUNT(*) from user_info 
+    </select>
+    
+    
+    
+</mapper>

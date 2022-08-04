@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.smhrd.mapper.CommunityMapper">
+
+    <!-- 총 게시글 갯수 출력 -->
+   <select id="countBoard" resultType="Integer">
+      SELECT COUNT(*) FROM community_info
+   </select>
+   
+   <!-- 댓글 수 -->
+   <update id="commCntUp" parameterType="Integer">
+       update community_info as info 
+       set info.comm_cnt = (select count(comment_seq) from comment
+       where article_seq=#{article_seq}) where info.article_seq=#{article_seq}
+   </update>
+    
+   <!-- 모든 커뮤니티 글 가져오기 -->
+    <select id="communityList" resultType="com.smhrd.domain.Community">
+         SELECT * FROM community_info ORDER BY article_date DESC    
+    </select>
+    
+    <!-- 내가 쓴 글 가져오기 -->
+    <select id="communityMyList" resultType="com.smhrd.domain.Community">
+         SELECT * FROM community_info where user_num=#{user_num} ORDER BY article_date DESC    
+    </select>
+      
+    <!-- 커뮤니티 글 작성 -->
+    <insert id="communityInsert" parameterType="com.smhrd.domain.Community">
+        insert into community_info(article_title,article_content,article_date,user_num,article_file,user_nick) 
+        values(#{article_title},#{article_content},now(),#{user_num},#{article_file},#{user_nick})
+    </insert>
+    
+    <!-- 특정 커뮤니티 글 가져오기 -->
+    <select id="communityContent" resultType="com.smhrd.domain.Community">
+        select * from community_info where article_seq = #{article_seq}
+    </select>
+    
+    <!-- 커뮤니티 글 수정하기 -->
+    <update id="communityUpdate" parameterType="com.smhrd.domain.Community">
+        update community_info set article_title=#{article_title}, article_content=#{article_content} where article_seq=#{article_seq}
+    </update>
+   
+    <!-- 커뮤니티 조회수 업데이트 -->
+    <update id="communityCntUpdate" parameterType="com.smhrd.domain.Community">
+        update community_info set article_cnt=#{article_cnt} where article_seq=#{article_seq}
+    </update>
+    
+    <!-- 커뮤니티 게시글 삭제 -->
+    <delete id="communityDelete">
+        delete from community_info where article_seq=#{article_seq}
+    </delete>
+    
+    <!-- 신고받은 커뮤니티 글 가져오기 -->
+    <select id="communityReport" resultType="com.smhrd.domain.Community">
+        select * from community_info where article_report>=1
+    </select>
+           
+    <!-- 검색 결과 -->
+    <select  id="searchList" resultType="com.smhrd.domain.Community" parameterType="com.smhrd.domain.Search">
+        <![CDATA[
+        select * from community_info
+           where
+        ]]>
+           <if test='searchType.equals("article_title")'>article_title like CONCAT(‘%',#{keyword, jdbcType=VARCHAR},'%')</if>
+           <if test='searchType.equals("article_content")'>article_content like CONCAT('%',#{keyword, jdbcType=VARCHAR},'%')</if>
+           <if test='searchType.equals("title_content")'>article_title like CONCAT('%',#{keyword, jdbcType=VARCHAR},'%')
+                  or article_content like CONCAT('%',#{keyword, jdbcType=VARCHAR},'%')</if>
+           <if test='searchType.equals("") or searchType.equals(null)'>1=1</if>
+        <![CDATA[
+        ORDER BY article_date DESC
+        ]]>
+    </select>
+           
+    <!-- 검색 결과 수 -->
+    <select  id="getBoardListCnt" resultType="int" parameterType="com.smhrd.domain.Search">
+        select count(*) as listCnt from community_info where
+           <if test='searchType.equals("article_title")'>article_title like CONCAT('%',#{keyword, jdbcType=VARCHAR},'%')</if>
+           <if test='searchType.equals("article_content")'>article_content like CONCAT('%',#{keyword, jdbcType=VARCHAR},'%')</if>
+           <if test='searchType.equals("title_content")'>article_title like CONCAT('%',#{keyword, jdbcType=VARCHAR},'%')
+                  or article_content like CONCAT('%',#{keyword, jdbcType=VARCHAR},'%')</if>
+           <if test='"searchType"==null or searchType==""'>1=1</if>
+    </select>  
+
+</mapper>

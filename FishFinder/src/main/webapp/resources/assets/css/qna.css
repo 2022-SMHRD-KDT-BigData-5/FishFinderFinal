@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.qna_box{
+    border: 1px solid #fff;
+    padding: 2%;
+    width: 736px;
+    margin: auto;
+    height: 640px;
+    border-radius: 5px;
+    font-family: 'twayair';
+    margin-top: 1%;
+}
+.qna_scroll::-webkit-scrollbar {
+    display: none;
+}
+@media screen and (max-width: 736px){
+    .qna_box{
+        width: 320px;
+        height: 500px;
+    }
+}
+.qna_menu{
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+.qna_menu a{
+    margin-right: 1%;
+    margin-left: 1%;
+    font-size: 110%;
+}
+.qna_menu a:hover{
+    color: rgba(0,172,238,1);
+    font-size: 120%;
+}
+.qna_menu a:focus{
+    color: rgba(0,172,238,1);
+    font-size: 120%;
+}
+.qna_box a{
+    border-bottom: none;
+}
+#header{
+    text-align: center;
+}
+.qna_scroll{
+    position: relative;
+    top: 8%;
+    width: 100%;
+    height: 90%;
+    margin: auto;
+    overflow: scroll;
+}
+.qna_qa{
+    text-align: left;
+    background-color: rgb(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+.qna_qa:hover{
+    background-color: rgb(255, 255, 255, 1);
+    cursor: pointer;
+}
+.qna_q{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    color: black;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+}
+.qna_q:active{
+    color: black;
+}
+.qna_a{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgb(100, 100, 100, 0.3);
+    padding: 2%;
+    color: black;
+}
+[id$="-toggle"] {
+    margin-right: 15px;
+}
+.qna_date{
+    font-size: small;
+    width: 100%;
+    text-align: right;
+}

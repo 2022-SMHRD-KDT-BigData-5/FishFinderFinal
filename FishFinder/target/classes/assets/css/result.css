@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+    transform: skew(-1deg);
+}
+@font-face {
+    font-family: 'OTWelcomeBA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeBA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/* meter tag */
+meter {
+	margin-top: 20px;
+	width: 70%;
+	height: 20px;
+	max-width: 400px;
+	background-color: black;
+	border-radius: 6px;
+	
+}
+/* container */
+.container{
+	width: 100%;
+	height: 200px;
+	max-width: 300px;
+	background-color: #fff;
+	border: 8px solid #eee;
+	border-radius: 6px;
+	margin: auto;
+}
+/* result_img */
+.result {
+	width: 100%;
+	height: 100%;
+}
+.progress-bar {
+	position: relative;
+	width: 70%;
+	height: 3em;
+	background-color: rgb(255, 255, 255);
+	border-radius: 1.5em;
+	color:rgb(0, 0, 0);
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	max-width: 300px;
+
+}
+.progress-bar::before{
+	content: attr(data-label);
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: .5em;
+	top:.5em;
+	bottom : .5em;
+	width: calc(var(--width,0) * 1%);
+	min-width: 2rem;
+	max-width: calc(100% - 1em);
+	background-color: #069;
+	border-radius: 1em;
+	padding: 1em;
+}
+.card {
+	padding-left: 1%;
+	padding-right: 1%;
+	width: 70%;
+	height: 200px;
+	/* background-color: rgb(96, 187, 247); */
+	border-radius: 6px;
+	margin: auto;
+	max-width: 300px;
+	overflow: scroll;
+    border: 2px solid #eee;
+    font-family: 'Cafe24Ssurround';
+	text-align: left;
+}
+.card::-webkit-scrollbar {
+    display: none;
+  }
+.result_font{
+	margin-bottom: 1%;
+	font-family: 'OTWelcomeBA';
+	font-size: large;
+}

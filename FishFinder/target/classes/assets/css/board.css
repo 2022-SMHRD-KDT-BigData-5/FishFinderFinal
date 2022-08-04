@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+    transform: skew(-1deg);
+}
+.board_box{
+    border: 1px solid #fff;
+    padding: 2%;
+    width: 736px;
+    margin: auto;
+    height: 640px;
+    /* overflow: scroll; */
+    /* background-color: rgb(255, 255, 255, 0.9); */
+    border-radius: 5px;
+    font-family: 'Cafe24Ssurround';
+    margin-top: 1%;
+    padding-bottom: 5%;
+}
+.board_scroll::-webkit-scrollbar {
+    display: none;
+}
+.board_list{
+    display: flex;
+    margin-bottom: 1%;
+    border: 1px solid rgb(100, 100, 100);
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 5px;
+}
+.preview_img{
+    width: 130px;
+    padding: 1%;
+    height: 100px;
+}
+.board_img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+/* 검색창 */
+input:-ms-input-placeholder{color:#a8a8a8;}
+input:-webkit-input-placeholder{color:#a8a8a8;}
+input:-moz-placeholder{color:#a8a8a8;}
+
+.search_box{
+    margin: auto;
+    left: 0;
+    right: 0;
+    height: 40px;
+    width: 200px;
+    border: 1px solid rgba(0,172,238,1);
+    background: #ffffff;
+    margin-top: 0.1px;
+    vertical-align: middle;
+}
+.search_input{
+    font-size: 15px;
+    width: 70%;
+    height: 100%;
+    padding: 5%;
+    border: 0px;
+    outline: none;
+    float: left;
+    color: black;
+}
+.search_button{
+    width: 30%;
+    height: 100%;
+    border: 0px;
+    background: rgba(0,172,238,1);
+    outline: none;
+    float: right;
+    color: #ffffff;
+}
+.board_title{
+    padding-top: 2%;
+    font-size: larger;
+}
+@media screen and (max-width: 736px){
+    .board_box{
+        width: 320px;
+        height: 500px;
+    }
+    .board_title{
+        font-size: 1em;
+    }
+    .board_wdv{
+        font-size: 0.7em;
+    }
+    .board_comments{
+        font-size: 0.8em;
+    }
+    .comments_box{
+        size: 0.7em;
+    }
+    .board_scroll{
+        margin-top: 10%;
+    }
+    .preview_img{
+        height: 68px;
+    }
+    .board_img{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+    .search_box{
+        width: 50%;
+        height: 7%;
+    }
+    
+}
+.board_tnd{
+    margin-left: 5%;
+    width: 100%;
+    padding-top: 1%;
+    text-align: left;
+    color: black;
+    transform: skew(-0.1deg);
+}
+.board_wdv{
+    padding-top: 10px;
+}
+.comments_box{
+    padding: 2%;
+    width: 100px;
+    height: 100%;
+}
+.board_comments{
+    border-color: #fff;
+    color: #fff;
+    font-family: 'Cafe24Ssurround';
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255, 0.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    border-radius: 5px;
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+    padding: 5%;
+    width: 90%;
+    height: 100%;
+}
+.board_menu{
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    transform: skew(-1deg);
+}
+.board_menu a{
+    font-size: 110%;
+}
+.board_menu a{
+    border: none;
+    transform: skew(-1deg);
+    padding: 3%;
+    font-family: 'Cafe24Ssurround';
+    font-size: 110%;
+}
+.board_menu a:hover{
+    color: rgba(0,172,238,1);
+    font-size: 120%;
+    transform: skew(-1deg);
+
+}
+.board_menu a:focus{
+    color: rgba(0,172,238,1);
+    font-size: 120%;
+    transform: skew(-1deg);
+}
+.board_scroll{
+    margin-top: 9%;
+    overflow: scroll;
+    height: 90%;
+}

@@ -1,0 +1,345 @@
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.view_dvc{
+    border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+    opacity: 0.7;
+}
+.view_title{
+    font-size: larger;
+}
+.view_writer{
+    margin-top: 2%;
+    opacity: 0.9;
+}
+.view_views{
+  margin-left: 2%;
+}
+.view_comments{
+  margin-left: 2%;
+}
+.view_content{
+    width: 100%;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+    padding: 5%;
+    text-align: left;
+}
+.view_scroll{
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+}
+.view_scroll::-webkit-scrollbar {
+    display: none;
+}
+.view_image{
+  /* width: 40%;
+  height: 100px; */
+  width: 100%;
+  height: 100%;
+}
+.view_img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: scale-down;
+}
+@media screen and (max-width: 736px){
+  .view_img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: scale-down;
+  }
+}
+.comments_box{
+    padding-top: 2%;
+    padding-right: 5%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    text-align: left;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+}
+.comments_date{
+    opacity: 0.7;
+    width: 100%;
+}
+.comments_content{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.comments_menu{
+    border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+}
+/* 게시글 수정 삭제 세션에 따라 보여지고 숨기고 */
+.view_md{
+    text-align: right;
+    padding: 1%;
+    color: rgb(255, 255, 255);
+}
+.view_modify:hover{
+  color: black;
+}
+.view_delete:hover{
+  color: black;
+}
+.write_comments:hover{
+  color: black;
+}
+.view_report:hover{
+  color: black;
+}
+.view_delete{
+    margin-left: 5%;
+}
+.view_report{
+  margin-left: 5%;
+}
+.write_comments{
+  margin-left: 5%;
+}
+.comm_write_box{
+    width: 100%;
+    height: auto;
+    margin-top: 4%;
+    text-align: right;
+}
+.comm_text{
+    width: 100%;
+    height: 100px;
+    resize: none;
+    background-color: rgb(255, 255, 255, 0.3);
+    padding: 2%;
+    border-radius: 5px;
+}
+.comm_md{
+    margin-left: 40%;
+}
+/* 댓글 수정 삭제 */
+.comments_dmd{
+  font-size: smaller;
+  display: flex;
+  width: 100%;
+  text-align: left;
+}
+.comments_md{
+  width: 100%;
+  text-align: right;
+}
+.comments_delete{
+  padding-left: 5%;
+}
+.comments_delete:hover{
+  color: black;
+}
+.comments_modify:hover{
+  color: black;
+}
+/* 버튼 디자인 */
+.custom-btn {
+    width: 65px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'twayair';
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+.btn-3 {
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+    width: 65px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    
+  }
+  .btn-3 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-3:before,
+  .btn-3:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+     background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+  }
+  .btn-3:before {
+    height: 0%;
+    width: 2px;
+  }
+  .btn-3:after {
+    width: 0%;
+    height: 2px;
+  }
+  .btn-3:hover{
+     background: transparent;
+    box-shadow: none;
+  }
+  .btn-3:hover:before {
+    height: 100%;
+  }
+  .btn-3:hover:after {
+    width: 100%;
+  }
+  .btn-3 span:hover{
+     color: rgba(2,126,251,1);
+  }
+  .btn-3 span:before,
+  .btn-3 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+     background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+  }
+  .btn-3 span:before {
+    width: 2px;
+    height: 0%;
+  }
+  .btn-3 span:after {
+    width: 0%;
+    height: 2px;
+  }
+  .btn-3 span:hover:before {
+    height: 100%;
+  }
+  .btn-3 span:hover:after {
+    width: 100%;
+  }
+/* 모달창 */
+input[id*="popup"]{
+  display: none;
+}
+input[id*="popup"] + label{
+  display: inline-block;
+  padding: 20px;
+  color: #fff;
+}
+input[id*="popup"] + label + div{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+input[id*="popup"] + label + div > div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 500px;
+  height: 300px;
+  background: #fff;
+  z-index: 2;
+}
+input[id*="popup"] + label + div > div > label{
+  position: absolute;
+  top: 4%;
+  right: -4%;
+  transform: translate(-40%,-40%);
+  padding: 20px;
+  background: url("images/X.png");
+  background-size: cover;
+  /* background: #122b9b; */
+  border-radius: 100%;
+  z-index: 1;
+}
+input[id*="popup"] + label + div > label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+}
+input[id*="popup"] + label + div{
+ display: none;
+}
+input[id*="popup"]:checked + label + div{
+  display: block;
+}
+input[id*="popup"] + label + div > textarea{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 417px;
+  height: 222px;
+  background: url("images/bg5.png");
+  background-size: cover;
+  z-index: 3;
+  padding: 20px;
+}
+input[id*="popup"] + label + div > button{
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 50px;
+  height: 0px;
+  z-index: 3;
+}
+/* 모달창반응형 */
+@media screen and (max-width: 480px) {
+  input[id*="popup"] + label + div > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 150px;
+    background: #fff;
+    z-index: 2;
+  }
+  input[id*="popup"] + label + div > textarea{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 260px;
+    height: 120px;
+    background: url("images/bg5.png");
+    background-size: cover;
+    z-index: 3;
+    padding: 10px;
+  }
+  input[id*="popup"] + label + div > div > label{
+    position: absolute;
+    top: 3%;
+    right: -9%;
+    transform: translate(-40%,-40%);
+    padding: 20px;
+    background: url("images/X.png");
+    background-size: cover;
+    /* background: #122b9b; */
+    border-radius: 100%;
+    z-index: 1;
+  }
+  input[id*="popup"] + label + div > button{
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 0px;
+    z-index: 3;
+  }
